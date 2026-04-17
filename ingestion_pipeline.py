@@ -24,7 +24,7 @@ def load_documents(docs_path="doc"):
     )
 
     documents = loader.load()
-    
+
     if len(documents) == 0:
         raise FileNotFoundError(f"No .txt files found in {docs_path}. Please add relevant documents to the directory.")
     
@@ -87,7 +87,7 @@ def main():
     #2. Chunking the files
     chunks = split_documents(documents)
 
-    #3, Embedding and storing into the Vector db
+    #3. Embedding and storing into the Vector db
     vectorstore = create_vector_store(chunks)
 
 if __name__ == "__main__":
