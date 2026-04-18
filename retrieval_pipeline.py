@@ -27,8 +27,8 @@ query = "Which island does SpaceX lease for it's launches in the Pacific?"
 retriever = db.as_retriever(
     search_type="similarity_score_threshold",
     search_kwargs={
-        "k": 5,
-        "score_threshold": 0.3 # Only return chunks with cosine similarity of 0.3 or higher
+        "k": 5, # k specifies the number of relevant documents/chunks to retrieve
+        "score_threshold": 0.3 # Only return chunks with similarity of 0.3 or higher. We are using cosine similarity which ranges from -1 to 1, where 1 means the vectors are identical, 0 means they are orthogonal (no similarity), and -1 means they are diametrically opposed. So a threshold of 0.3 means we only want chunks that have at least some degree of similarity to the query. You can adjust this threshold based on your needs and the quality of results you want to retrieve.
     }
 )
 
@@ -53,7 +53,7 @@ Documents:
 Please provide a clear, helpful answer using only the information from these documents. If you can't find the answer in the documents, say "I don't have enough information to answer that question based on the provided documents."
 """
 # Set up the OllamaLLM object and specify the model
-model = OllamaLLM(model="llama3.2:3b")
+model = OllamaLLM(model="llama3.2:3b", temperature=0.2)
 
 #Define the messages for the model
 messages = [
