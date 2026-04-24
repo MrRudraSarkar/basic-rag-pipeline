@@ -98,8 +98,7 @@ if __name__ == "__main__":
 
 
 # """Important Note:
-# So far i think one of the well-explained rag tutorials, for those of you wondering about free models, you can set up OLlama on your local computer. 
-# I am using M1 Pro 16 gigs of ram and it is way too fast. 
+# if you are wondering about free models, you can set up OLlama on your local computer. 
 
 
 # Setup Ollama by yourself and run below commands
